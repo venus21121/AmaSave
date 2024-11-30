@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @EnableAsync // Enables async processing
 @EnableScheduling
-public class RetailPriceTrackerApplication {
+public class AmaSaveApplication {
 
 	//entry point
 	public static void main(String[] args) {
-		SpringApplication.run(RetailPriceTrackerApplication.class, args);
+		SpringApplication.run(AmaSaveApplication.class, args);
 	}
 	@GetMapping("/hello") //endpoint
 	public String sayHello(@RequestParam(value = "myName", defaultValue = "Venus") String name) {
