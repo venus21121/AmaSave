@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.io.UnsupportedEncodingException;
-import java.math.BigDecimal;
 import java.net.URLDecoder;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
@@ -17,12 +16,10 @@ import java.util.regex.Pattern;
 public class ProductService {
 
     private final ProductRepository productRepository;
-    private final BrowseAiService browseAiService;
 
     @Autowired
-    public ProductService(ProductRepository productRepository, BrowseAiService browseAiService) {
+    public ProductService(ProductRepository productRepository) {
         this.productRepository = productRepository;
-        this.browseAiService = browseAiService;
     }
 
     // Fetch all products
@@ -86,7 +83,6 @@ public class ProductService {
 
     // Placeholder for searching products by URL
     private List<Product> searchByUrl(String url) {
-        // TODO: Implement actual search logic later
         String asin = extractAsin(url);
         if (asin != null) {
             Optional<Product> product = getProductByASIN(asin);
@@ -131,28 +127,6 @@ public class ProductService {
 
         return Collections.emptyList();
 
-        // Otherwise, trigger BrowseAI task asynchronously
-        // For now, we can disable the browseAiTask
-        // triggerBrowseAiTask(keyword);
-
-        // Return a placeholder product, which will NOT be saved to the database
-        // return Collections.singletonList(new Product(null, "Processing", BigDecimal.ZERO, "", "", "", ""));
     }
 
-    // Run bot to scrape search page
-    private void triggerBrowseAiTask(String keyword) {
-        try {
-            Map<String, Object> inputParams = new HashMap<>();
-            String productUrl = "https://www.amazon.com/s?k=" + keyword;
-            inputParams.put("amazon_url", productUrl);
-            inputParams.put("max_products", 10);
-
-            // Delegate the task to the BrowseAiService
-            browseAiService.runRobot(inputParams);
-            System.out.println("BrowseAI task triggered successfully.");
-        } catch (Exception e) {
-            System.err.println("Error occurred while triggering BrowseAI task: " + e.getMessage());
-        }
-    }
-    // Additional product-related logic can be added here
 }
