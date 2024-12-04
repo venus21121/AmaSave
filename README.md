@@ -1,6 +1,4 @@
 # AmaSave Full-Stack Price Tracker
-
-## Overview
 AmaSave is a web application that allows users to track the prices of Amazon products and receive alerts when their desired price threshold is met. The app provides a personalized dashboard where users can manage their tracked products and view price history.
 
 ## Description
