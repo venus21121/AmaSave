@@ -1,8 +1,27 @@
 # AmaSave Full-Stack Price Tracker
 
-AmaSave is a web application that tracks product prices from Amazon and alerts users when they fall below a certain threshold.
+## Overview
+AmaSave is a web application that allows users to track the prices of Amazon products and receive alerts when their desired price threshold is met. The app provides a personalized dashboard where users can manage their tracked products and view price history.
 
-## Project Setup
+## Description
+AmaSave enables users to track the prices of Amazon products by adding product URLs or searching for product names. Users can set price alerts for products they are tracking, and the system will continuously monitor product prices, notifying users when a product falls below their desired price.
+
+## Features
+- **User Registration & Login**: Secure registration and login with JWT authentication.
+- **Product Tracking**: Track products from Amazon by URL or search.
+- **Price Alerts**: Set desired price thresholds for tracked products.
+- **Price Monitoring**: Continuously monitor prices and receive alerts when they drop below your set threshold.
+- **Price History**: View price history for tracked products.
+- **Personalized Dashboard**: View and manage your tracked products and alerts in a personalized dashboard.
+- **Admin Access**: Admins can manage users and view all tracked products.
+
+## Technologies Used
+- **Frontend**: React, React Router, Axios, Tailwind CSS
+- **Backend**: Spring Boot, PostgreSQL
+- **Authentication**: JWT (JSON Web Tokens)
+- **Database**: PostgreSQL
+
+## Setting Up the Environment
 
 This repository contains both the frontend and backend for the application.
 
