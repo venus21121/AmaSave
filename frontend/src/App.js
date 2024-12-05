@@ -17,19 +17,28 @@ const PRODUCT_URL = "/product";
 
 const App = () => {
   const [products, setProducts] = useState([]);
+  const [connection, setConnections] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const response = await axios.get(PRODUCT_URL);
         setProducts(response.data);
+        setConnections(true);
       } catch (err) {
         console.log(err);
+        setConnections(false);
       }
     };
     fetchProducts();
   }, []);
 
+  if (!connection)
+    return (
+      <div className="error-container">
+        <p>Unable to load products. Please try again later.</p>
+      </div>
+    );
   return (
     <div className="app">
       <BrowserRouter>
