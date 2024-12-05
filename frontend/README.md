@@ -1,6 +1,5 @@
 # Frontend - AmaSave
 
-#TESTING
 This is the React-based frontend for the AmaSave retail price tracker. It connects to the backend to allow users to track prices and manage their preferences.
 
 ## Features
